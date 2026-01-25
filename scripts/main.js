@@ -19,6 +19,18 @@ async function initializeDashboard() {
     // Update large gifts table
     updateLargeGiftsTable(weekData.largeGifts);
 
+    // Set report week/published date from JSON
+    const rawData = await dashboard.loadJSON("contributions_2026.json");
+    if (rawData && rawData.lastUpdated) {
+      const publishDate = new Date(rawData.lastUpdated);
+      document.getElementById("reportWeek").textContent =
+        publishDate.toLocaleString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        });
+    }
+
     // Set last updated time
     document.getElementById("lastUpdate").textContent =
       new Date().toLocaleString("en-US", {

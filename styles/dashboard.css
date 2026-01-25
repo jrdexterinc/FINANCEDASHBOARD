@@ -41,7 +41,7 @@ body {
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .dashboard-header h1 {
@@ -49,9 +49,23 @@ body {
   font-weight: 600;
 }
 
+.header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: right;
+}
+
+.report-period {
+  font-size: 13px;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
 .last-updated {
-  font-size: 14px;
-  opacity: 0.9;
+  font-size: 13px;
+  opacity: 0.85;
+  font-weight: 500;
 }
 
 /* KPI Cards */

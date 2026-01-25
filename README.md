@@ -54,16 +54,19 @@ FinanceDashboard/
 ## Getting Started
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/jrdexterinc/FINANCEDASHBOARD.git
 ```
 
 2. Navigate to the project directory:
+
 ```bash
 cd FINANCEDASHBOARD
 ```
 
 3. Open `index.html` in a modern web browser or serve it locally:
+
 ```bash
 # Using Python
 python -m http.server 8000
@@ -103,4 +106,4 @@ Internal use only
 
 ---
 
-*Created with AI assistance to enhance financial transparency and decision-making at Impact Church.*
+_Created with AI assistance to enhance financial transparency and decision-making at Impact Church._
