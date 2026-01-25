@@ -1,0 +1,35 @@
+{
+  "annualBudget": 250000,
+  "categories": [
+    {
+      "name": "General Fund",
+      "budgeted": 150000,
+      "spent": 45000,
+      "percentage": 30
+    },
+    {
+      "name": "Building Fund",
+      "budgeted": 40000,
+      "spent": 12000,
+      "percentage": 30
+    },
+    {
+      "name": "Missions",
+      "budgeted": 35000,
+      "spent": 18000,
+      "percentage": 51
+    },
+    {
+      "name": "Operations",
+      "budgeted": 25000,
+      "spent": 14500,
+      "percentage": 58
+    }
+  ],
+  "summary": {
+    "totalBudget": 250000,
+    "totalSpent": 89500,
+    "percentageUsed": 36,
+    "remainingBudget": 160500
+  }
+}

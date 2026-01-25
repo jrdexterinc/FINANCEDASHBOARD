@@ -1,0 +1,55 @@
+{
+  "donors": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "totalGiven": 5200,
+      "giftCount": 12,
+      "lastGiftDate": "2026-01-24",
+      "preferredMethod": "Online"
+    },
+    {
+      "id": 2,
+      "name": "Mary Johnson",
+      "email": "mary.j@example.com",
+      "totalGiven": 4800,
+      "giftCount": 10,
+      "lastGiftDate": "2026-01-22",
+      "preferredMethod": "Check"
+    },
+    {
+      "id": 3,
+      "name": "Robert Williams",
+      "email": "r.williams@example.com",
+      "totalGiven": 6500,
+      "giftCount": 8,
+      "lastGiftDate": "2026-01-23",
+      "preferredMethod": "Online"
+    },
+    {
+      "id": 4,
+      "name": "Patricia Brown",
+      "email": "p.brown@example.com",
+      "totalGiven": 3200,
+      "giftCount": 6,
+      "lastGiftDate": "2026-01-20",
+      "preferredMethod": "Mobile"
+    },
+    {
+      "id": 5,
+      "name": "Michael Davis",
+      "email": "m.davis@example.com",
+      "totalGiven": 2800,
+      "giftCount": 14,
+      "lastGiftDate": "2026-01-21",
+      "preferredMethod": "Cash"
+    }
+  ],
+  "summary": {
+    "totalDonors": 145,
+    "activeDonors": 89,
+    "averageGift": 617,
+    "topDonor": "Robert Williams"
+  }
+}

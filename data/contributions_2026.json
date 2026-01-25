@@ -1,0 +1,59 @@
+{
+  "lastUpdated": "2026-01-18T14:30:00",
+  "currentWeek": {
+    "wtd": {
+      "actual": 156218,
+      "budget": 157128,
+      "previousYear": 151478
+    },
+    "mtd": {
+      "actual": 433310,
+      "budget": 475190,
+      "previousYear": 468588
+    },
+    "ytd": {
+      "actual": 433310,
+      "budget": 475190,
+      "previousYear": 468588
+    },
+    "distinctGivers": {
+      "current": 1645,
+      "previous": 1589
+    },
+    "givingMethods": {
+      "Online": 195824,
+      "Envelopes": 61185,
+      "ACH": 156301,
+      "Check": 20000
+    },
+    "weeklyTrend": [
+      { "week": "12/21", "amount": 145000 },
+      { "week": "12/28", "amount": 152000 },
+      { "week": "01/04", "amount": 148500 },
+      { "week": "01/11", "amount": 153800 },
+      { "week": "01/18", "amount": 156218 }
+    ],
+    "largeGifts": [
+      {
+        "date": "2026-01-15",
+        "amount": 25000,
+        "method": "Online",
+        "category": "Tithes"
+      }
+    ],
+    "yoyComparison": [
+      { "month": "Jan", "current": 433310, "previous": 468588 },
+      { "month": "Feb", "current": 0, "previous": 425000 },
+      { "month": "Mar", "current": 0, "previous": 512000 },
+      { "month": "Apr", "current": 0, "previous": 487500 },
+      { "month": "May", "current": 0, "previous": 502000 },
+      { "month": "Jun", "current": 0, "previous": 495000 },
+      { "month": "Jul", "current": 0, "previous": 521000 },
+      { "month": "Aug", "current": 0, "previous": 538000 },
+      { "month": "Sep", "current": 0, "previous": 514000 },
+      { "month": "Oct", "current": 0, "previous": 528000 },
+      { "month": "Nov", "current": 0, "previous": 612000 },
+      { "month": "Dec", "current": 0, "previous": 687000 }
+    ]
+  }
+}
