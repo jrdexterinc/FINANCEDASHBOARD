@@ -13,6 +13,7 @@ async function initializeDashboard() {
     // Initialize charts
     createWeeklyTrendChart(weekData.weeklyTrend);
     createGivingMethodChart(weekData.givingMethods);
+    createDonationCategoryChart(weekData.donationCategories);
     createBudgetChart(weekData, budgetData);
     createYoYChart(weekData.yoyComparison);
 
@@ -21,10 +22,10 @@ async function initializeDashboard() {
 
     // Set report week/published date from JSON
     const rawData = await dashboard.loadJSON("contributions_2026.json");
-    if (rawData && rawData.lastUpdated) {
-      const publishDate = new Date(rawData.lastUpdated);
+    if (rawData && rawData.reportWeekEnding) {
+      const reportDate = new Date(rawData.reportWeekEnding);
       document.getElementById("reportWeek").textContent =
-        publishDate.toLocaleString("en-US", {
+        reportDate.toLocaleString("en-US", {
           month: "short",
           day: "numeric",
           year: "numeric",

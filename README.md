@@ -15,32 +15,44 @@ A comprehensive financial dashboard for Impact Church that provides real-time in
   - Distinct Givers Count
 
 - **Visual Analytics**
-  - Weekly Contributions Trend Chart
-  - Giving Method Distribution (Doughnut Chart)
+  - Weekly Contributions Trend Chart (rolling 10-week view)
+  - Giving Method Distribution (Doughnut Chart - Online, ACH, Cash, Check, Other)
+  - Contributions by Category (Doughnut Chart - Undesignated, Processing Fees, Legacy, Designated)
   - Budget vs Actual Comparison (Bar Chart)
   - Year-over-Year Comparison (Bar Chart)
 
 - **Data Tables**
-  - Recent Large Gifts Display
+  - Recent Large Gifts Display ($10,000+)
   - Budget Category Breakdown
+
+- **Data Processing**
+  - Automated CSV data cleaning and validation
+  - Master donations file generation
+  - Donor lookup table creation
+  - Weekly JSON report generation
 
 ## Project Structure
 
 ```
 FinanceDashboard/
-├── index.html              # Main dashboard HTML
+├── index.html                          # Main dashboard HTML
+├── README.md                           # This file
 ├── scripts/
-│   ├── main.js            # Dashboard initialization and KPI updates
-│   ├── charts.js          # Chart creation and management
-│   └── data-loader.js     # Data loading and calculations
+│   ├── main.js                         # Dashboard initialization and KPI updates
+│   ├── charts.js                       # Chart creation and management
+│   ├── data-loader.js                  # Data loading and calculations
+│   ├── data_cleaner.py                 # Raw CSV cleaning and validation
+│   └── contributions_generator.py      # Weekly JSON report generation
 ├── styles/
-│   └── dashboard.css      # Styling and responsive design
+│   └── dashboard.css                   # Styling and responsive design
 ├── data/
-│   ├── budget_2026.json   # Budget data
-│   ├── contributions_2026.json  # Contribution and giving data
-│   └── donors_2026.json   # Donor information
-├── .gitignore             # Git ignore rules
-└── README.md              # This file
+│   ├── Two_Years_of_Giving_Through_2026.csv  # Raw donation data
+│   ├── master_donations_cleaned.csv           # Cleaned donation data
+│   ├── donor_lookup.csv                       # Unique donor reference table
+│   ├── budget_2026.json                       # Budget data
+│   ├── contributions_2026.json                # Weekly contribution report
+│   └── donors_2026.json                       # Donor information
+└── .gitignore                          # Git ignore rules
 ```
 
 ## Technologies Used
@@ -48,10 +60,14 @@ FinanceDashboard/
 - HTML5
 - CSS3
 - JavaScript (ES6+)
+- Python 3 (data processing)
 - Chart.js 4.4.0 for data visualization
+- Pandas (data manipulation)
 - JSON for data storage
 
 ## Getting Started
+
+### Dashboard Setup
 
 1. Clone the repository:
 
@@ -77,15 +93,125 @@ npx http-server
 
 4. Visit `http://localhost:8000` in your browser
 
+### Weekly Data Processing Workflow
+
+1. **Export raw donation data** from your giving system as `Two_Years_of_Giving_Through_2026.csv` and place in the `data/` directory
+
+2. **Clean and validate the data**:
+
+```bash
+python3 scripts/data_cleaner.py
+```
+
+This generates:
+
+- `master_donations_cleaned.csv` - Cleaned, standardized donation records
+- `donor_lookup.csv` - Unique donor reference table
+
+3. **Generate weekly contribution report**:
+
+```bash
+python3 scripts/contributions_generator.py
+```
+
+This generates:
+
+- `contributions_2026.json` - Weekly metrics and analytics for the dashboard
+
+4. **Refresh the dashboard** - The dashboard will automatically load the updated JSON data
+
 ## Data Files
 
-- **budget_2026.json**: Contains annual budget and category breakdowns
-- **contributions_2026.json**: Contains contribution data, giving methods, and year-over-year comparisons
-- **donors_2026.json**: Contains donor information
+### Input Files
 
-## Auto-Refresh
+- **Two_Years_of_Giving_Through_2026.csv**: Raw donation export from giving system
+
+### Generated Files
+
+- **master_donations_cleaned.csv**: Cleaned donation records with:
+  - Standardized dates (YYYY-MM-DD format)
+  - Standardized amounts (2 decimal places)
+  - Validation flags for data quality
+  - Removed sensitive fields
+
+- **donor_lookup.csv**: Unique donor reference table with Donor ID, First Name, and Last Name for lookups
+
+- **contributions_2026.json**: Weekly dashboard report containing:
+  - Week-to-Date, Month-to-Date, Year-to-Date metrics
+  - Budget comparisons
+  - Distinct giver counts
+  - Donations by category (Undesignated, Processing Fees, Legacy, Designated)
+  - Giving methods breakdown (Online, ACH, Cash, Check, Other)
+  - Rolling 10-week trend (Nov 2025 - current)
+  - Year-over-year monthly comparisons
+  - Large gifts ($10,000+)
+
+### Reference Files
+
+- **budget_2026.json**: Annual budget allocations
+- **donors_2026.json**: Donor information
+
+## Data Processing Details
+
+### Data Cleaner (`data_cleaner.py`)
+
+Cleans raw CSV donation data with the following features:
+
+- Removes sensitive fields: dp_RecordName, dp_Selected, dp_RecordStatus, First Name, Last Name, Campaign Name
+- Standardizes donation dates to YYYY-MM-DD format
+- Formats amounts to 2 decimal places
+- Validates records and flags entries with:
+  - Missing Donor ID
+  - Invalid/zero amounts
+- Generates master file suitable for weekly analytics
+- Creates donor lookup table for reference
+
+### Contributions Generator (`contributions_generator.py`)
+
+Generates weekly analytics report with:
+
+- **Donation Categories**:
+  - Undesignated (Tithes, Offerings)
+  - Processing Fees (Credit Card Processing Fees)
+  - Legacy (Annual Legacy Gifts)
+  - Designated (All other categories)
+
+- **Payment Methods**:
+  - Online (Credit Card)
+  - ACH (ACH/EFT)
+  - Cash
+  - Check
+  - Other
+
+- **Time Periods**:
+  - Week-to-Date (Monday-Sunday)
+  - Month-to-Date
+  - Year-to-Date
+  - Year-over-Year comparisons (2025 vs 2026)
+
+- **Visualizations**:
+  - Rolling 10-week trend (November 2025 through current week)
+  - Monthly comparisons (Jan-Dec)
+  - Large gifts over $10,000
+
+### Budget Data
+
+Weekly budget: $157,128
+Monthly budgets configured for all 12 months
+
+## Dashboard Features
+
+### Auto-Refresh
 
 The dashboard automatically refreshes every 5 minutes to display the latest data.
+
+### Chart Visualizations
+
+- **Weekly Contributions Trend**: Line chart showing rolling 10-week trend spanning November 2025 through current week
+- **Giving Method Distribution**: Doughnut chart showing contributions by payment method (Online, ACH, Cash, Check, Other)
+- **Contributions by Category**: Doughnut chart showing donations by category type (Undesignated, Processing Fees, Legacy, Designated)
+- **Budget vs Actual**: Bar chart comparing budgeted vs actual giving by category
+- **Year-over-Year Comparison**: Monthly comparison between current year and previous year
 
 ## Browser Compatibility
 

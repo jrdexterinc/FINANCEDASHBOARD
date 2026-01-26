@@ -1,59 +1,152 @@
 {
-  "lastUpdated": "2026-01-18T14:30:00",
+  "lastUpdated": "2026-01-25T20:40:42",
+  "reportWeekEnding": "2026-01-18T23:59:59",
   "currentWeek": {
     "wtd": {
-      "actual": 156218,
+      "actual": 161900.45,
       "budget": 157128,
-      "previousYear": 151478
+      "previousYear": 162380.74
     },
     "mtd": {
-      "actual": 433310,
+      "actual": 454031.87,
       "budget": 475190,
-      "previousYear": 468588
+      "previousYear": 434125.36
     },
     "ytd": {
-      "actual": 433310,
-      "budget": 475190,
-      "previousYear": 468588
+      "actual": 454031.87,
+      "budget": 6296690,
+      "previousYear": 434125.36
     },
     "distinctGivers": {
-      "current": 1645,
-      "previous": 1589
+      "current": 896,
+      "previous": 737
+    },
+    "donationCategories": {
+      "Undesignated": 434509.8,
+      "Processing Fees": 1526.62,
+      "Legacy": 0.0,
+      "Designated": 17995.45
     },
     "givingMethods": {
-      "Online": 195824,
-      "Envelopes": 61185,
-      "ACH": 156301,
-      "Check": 20000
+      "Online": 293601.82,
+      "ACH": 98665.32,
+      "Cash": 20017.33,
+      "Check": 41167.4,
+      "Other": 580.0
     },
     "weeklyTrend": [
-      { "week": "12/21", "amount": 145000 },
-      { "week": "12/28", "amount": 152000 },
-      { "week": "01/04", "amount": 148500 },
-      { "week": "01/11", "amount": 153800 },
-      { "week": "01/18", "amount": 156218 }
-    ],
-    "largeGifts": [
       {
-        "date": "2026-01-15",
-        "amount": 25000,
-        "method": "Online",
-        "category": "Tithes"
+        "week": "11/16",
+        "amount": 145148.24,
+        "year": 2025
+      },
+      {
+        "week": "11/23",
+        "amount": 142511.69,
+        "year": 2025
+      },
+      {
+        "week": "11/30",
+        "amount": 145277.92,
+        "year": 2025
+      },
+      {
+        "week": "12/07",
+        "amount": 433783.23,
+        "year": 2025
+      },
+      {
+        "week": "12/14",
+        "amount": 266163.75,
+        "year": 2025
+      },
+      {
+        "week": "12/21",
+        "amount": 195150.58,
+        "year": 2025
+      },
+      {
+        "week": "12/28",
+        "amount": 125575.18,
+        "year": 2025
+      },
+      {
+        "week": "01/04",
+        "amount": 140094.94,
+        "year": 2026
+      },
+      {
+        "week": "01/11",
+        "amount": 152036.48,
+        "year": 2026
+      },
+      {
+        "week": "01/18",
+        "amount": 161900.45,
+        "year": 2026
       }
     ],
     "yoyComparison": [
-      { "month": "Jan", "current": 433310, "previous": 468588 },
-      { "month": "Feb", "current": 0, "previous": 425000 },
-      { "month": "Mar", "current": 0, "previous": 512000 },
-      { "month": "Apr", "current": 0, "previous": 487500 },
-      { "month": "May", "current": 0, "previous": 502000 },
-      { "month": "Jun", "current": 0, "previous": 495000 },
-      { "month": "Jul", "current": 0, "previous": 521000 },
-      { "month": "Aug", "current": 0, "previous": 538000 },
-      { "month": "Sep", "current": 0, "previous": 514000 },
-      { "month": "Oct", "current": 0, "previous": 528000 },
-      { "month": "Nov", "current": 0, "previous": 612000 },
-      { "month": "Dec", "current": 0, "previous": 687000 }
+      {
+        "month": "Jan",
+        "current": 549477.78,
+        "previous": 749238.9
+      },
+      {
+        "month": "Feb",
+        "current": 0.0,
+        "previous": 740209.2
+      },
+      {
+        "month": "Mar",
+        "current": 0.0,
+        "previous": 897484.9
+      },
+      {
+        "month": "Apr",
+        "current": 0.0,
+        "previous": 697369.92
+      },
+      {
+        "month": "May",
+        "current": 0.0,
+        "previous": 681772.4
+      },
+      {
+        "month": "Jun",
+        "current": 0.0,
+        "previous": 721865.6
+      },
+      {
+        "month": "Jul",
+        "current": 0.0,
+        "previous": 716766.2
+      },
+      {
+        "month": "Aug",
+        "current": 0.0,
+        "previous": 733155.84
+      },
+      {
+        "month": "Sep",
+        "current": 0.0,
+        "previous": 657229.84
+      },
+      {
+        "month": "Oct",
+        "current": 0.0,
+        "previous": 728516.0
+      },
+      {
+        "month": "Nov",
+        "current": 0.0,
+        "previous": 675722.22
+      },
+      {
+        "month": "Dec",
+        "current": 0.0,
+        "previous": 1128384.39
+      }
     ]
   }
 }

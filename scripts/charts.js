@@ -57,9 +57,43 @@ function createGivingMethodChart(data) {
   }
 
   const ctx = document.getElementById("givingMethodChart").getContext("2d");
-  const colors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444"];
+  const colors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 
   chartInstances.givingMethod = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: Object.keys(data),
+      datasets: [
+        {
+          data: Object.values(data),
+          backgroundColor: colors,
+          borderColor: "#fff",
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: "bottom",
+        },
+      },
+    },
+  });
+}
+
+// Create Donations by Category Chart
+function createDonationCategoryChart(data) {
+  if (chartInstances.donationCategory) {
+    chartInstances.donationCategory.destroy();
+  }
+
+  const ctx = document.getElementById("donationCategoryChart").getContext("2d");
+  const colors = ["#06b6d4", "#f97316", "#ec4899", "#8b5cf6"];
+
+  chartInstances.donationCategory = new Chart(ctx, {
     type: "doughnut",
     data: {
       labels: Object.keys(data),
