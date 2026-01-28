@@ -1,45 +1,40 @@
 {
-  "lastUpdated": "2026-01-25T20:40:42",
-  "reportWeekEnding": "2026-01-18T23:59:59",
+  "lastUpdated": "2026-01-27T20:46:10",
+  "reportWeekEnding": "2026-01-25T23:59:59",
   "currentWeek": {
     "wtd": {
-      "actual": 161900.45,
+      "actual": 137915.06,
       "budget": 157128,
-      "previousYear": 162380.74
+      "previousYear": 133956.9
     },
     "mtd": {
-      "actual": 454031.87,
+      "actual": 591946.93,
       "budget": 475190,
-      "previousYear": 434125.36
+      "previousYear": 572906.61
     },
     "ytd": {
-      "actual": 454031.87,
+      "actual": 591946.93,
       "budget": 6296690,
-      "previousYear": 434125.36
+      "previousYear": 572906.61
     },
     "distinctGivers": {
       "current": 896,
       "previous": 737
     },
     "donationCategories": {
-      "Undesignated": 434509.8,
-      "Processing Fees": 1526.62,
+      "Undesignated": 569647.88,
+      "Processing Fees": 2032.6,
       "Legacy": 0.0,
-      "Designated": 17995.45
+      "Designated": 20266.45
     },
     "givingMethods": {
-      "Online": 293601.82,
-      "ACH": 98665.32,
-      "Cash": 20017.33,
-      "Check": 41167.4,
+      "Online": 378448.03,
+      "ACH": 131365.95,
+      "Cash": 25557.78,
+      "Check": 55995.17,
       "Other": 580.0
     },
     "weeklyTrend": [
-      {
-        "week": "11/16",
-        "amount": 145148.24,
-        "year": 2025
-      },
       {
         "week": "11/23",
         "amount": 142511.69,
@@ -84,12 +79,17 @@
         "week": "01/18",
         "amount": 161900.45,
         "year": 2026
+      },
+      {
+        "week": "01/25",
+        "amount": 137915.06,
+        "year": 2026
       }
     ],
     "yoyComparison": [
       {
         "month": "Jan",
-        "current": 549477.78,
+        "current": 600548.33,
         "previous": 749238.9
       },
       {
