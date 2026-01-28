@@ -69,6 +69,12 @@ def map_payment_method(payment_type):
         return 'Other'
 
 
+def get_most_recent_sunday(df):
+    """Find the most recent complete Sunday in the data"""
+    max_date = df['Donation Date'].max()
+    days_since_sunday = (max_date.weekday() + 1) % 7
+    most_recent_sunday = max_date - timedelta(days=days_since_sunday)
+    return most_recent_sunday
 def calculate_donor_metrics(df, daily_df, cutoff_year=2026, cutoff_date=None):
     """Calculate key metrics for each donor across multiple time periods"""
     donor_metrics = {}
@@ -315,7 +321,7 @@ def main():
     
     # Calculate donor metrics
     print("Calculating donor metrics...")
-    cutoff_date = datetime(2026, 1, 18)
+    cutoff_date = get_most_recent_sunday(df)
     donor_metrics = calculate_donor_metrics(df, daily_df, cutoff_year=2026, cutoff_date=cutoff_date)
     
     # Get segments

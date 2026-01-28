@@ -252,19 +252,28 @@ def calculate_totals(df, year, cutoff_date=None):
     return categories, methods
 
 
+def get_most_recent_sunday(df):
+    """Find the most recent complete Sunday in the data"""
+    max_date = df['Donation Date'].max()
+    # Find the most recent Sunday (weekday 6)
+    days_since_sunday = (max_date.weekday() + 1) % 7
+    most_recent_sunday = max_date - timedelta(days=days_since_sunday)
+    return most_recent_sunday
+
+
 def main():
     """Main execution"""
     print("=" * 60)
     print("CONTRIBUTIONS GENERATOR - 2026")
     print("=" * 60)
     
-    # Configuration
-    current_date = datetime(2026, 1, 25)  # January 25, 2026 (Sunday)
-    cutoff_date = datetime(2026, 1, 18)   # Through January 18, 2026 (Sunday - complete week)
-    previous_year_date = datetime(2025, 1, 18)  # Same week date in 2025
-    
     # Load data
     df = load_data(INPUT_FILE)
+    
+    # Automatically determine cutoff date as most recent complete Sunday
+    cutoff_date = get_most_recent_sunday(df)
+    # Calculate corresponding previous year date
+    previous_year_date = cutoff_date.replace(year=cutoff_date.year - 1)
     
     # Add categorization for all data
     df['Category'] = df['Statement Title'].apply(categorize_donation)
@@ -439,11 +448,12 @@ def main():
     print("\n" + "=" * 60)
     print("SUMMARY")
     print("=" * 60)
-    print(f"Period: Through Sunday, January 18, 2026")
-    print(f"\nWeek (Jan 12-18):")
+    print(f"Period: Through Sunday, {cutoff_date.strftime('%B %d, %Y')}")
+    week_start = cutoff_date - timedelta(days=6)
+    print(f"\nWeek ({week_start.strftime('%b %d')}-{cutoff_date.strftime('%d')}):")
     print(f"  Current: ${current_week['amount']:,.2f}")
     print(f"  Previous Year: ${previous_week['amount']:,.2f}")
-    print(f"\nMonth to Date (January):")
+    print(f"\nMonth to Date ({cutoff_date.strftime('%B')}):")
     print(f"  Current: ${current_mtd:,.2f}")
     print(f"  Previous Year: ${previous_mtd:,.2f}")
     print(f"\nYear to Date:")
