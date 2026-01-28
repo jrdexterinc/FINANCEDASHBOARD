@@ -233,3 +233,35 @@ Internal use only
 ---
 
 _Created with AI assistance to enhance financial transparency and decision-making at Impact Church._
+
+### Budget input: `data/budget_2026.json`
+
+Place a `budget_2026.json` file in the `data/` folder when ready. The scripts currently read budget values from the constants in `scripts/contributions_generator.py`. If you'd like the scripts to load budgets from `budget_2026.json` automatically, I can update the generator to do that.
+
+Expected minimal structure (example):
+
+```json
+{
+  "year": 2026,
+  "weekly_budget": 157128,
+  "monthly_budgets": {
+    "1": 475190,
+    "2": 425000,
+    "3": 512000,
+    "4": 487500,
+    "5": 502000,
+    "6": 495000,
+    "7": 521000,
+    "8": 538000,
+    "9": 514000,
+    "10": 528000,
+    "11": 612000,
+    "12": 687000
+  }
+}
+```
+
+Notes:
+- File path: `data/budget_2026.json`
+- Keys: `year` (number), `weekly_budget` (number), `monthly_budgets` (object mapping month number to amount).
+- If you want me to make the scripts automatically read this file, tell me and I'll implement it.
