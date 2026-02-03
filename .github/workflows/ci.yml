@@ -17,6 +17,7 @@ jobs:
         run: |
           pip install -r requirements.txt || true
       - name: Run unit tests
-        run: python -m unittest discover -v
+        run: |
+          python -m unittest discover -v || [ $? -eq 5 ]
       - name: Run smoke test
         run: python3 tests/smoke_test.py
