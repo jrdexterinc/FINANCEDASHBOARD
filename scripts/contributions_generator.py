@@ -298,18 +298,22 @@ def main():
     current_week = get_weekly_metrics(df, 2026, current_week_num)
     previous_week = get_weekly_metrics(df, 2025, previous_week_num)
     
-    # Get current week Donor counts
+    # Get current week Donor counts (dynamically based on cutoff_date)
+    # Current week starts 6 days before cutoff_date (Monday to Sunday)
+    current_week_start = cutoff_date - timedelta(days=6)
     current_week_df = df[
         (df['Donation Date'].dt.year == 2026) &
-        (df['Donation Date'] >= datetime(2026, 1, 12)) &
-        (df['Donation Date'] <= datetime(2026, 1, 18))
+        (df['Donation Date'] >= current_week_start) &
+        (df['Donation Date'] <= cutoff_date)
     ]
     current_givers = current_week_df['Donor ID'].nunique()
     
+    # Previous year same week
+    previous_week_start = previous_year_date - timedelta(days=6)
     previous_week_df = df[
         (df['Donation Date'].dt.year == 2025) &
-        (df['Donation Date'] >= datetime(2025, 1, 12)) &
-        (df['Donation Date'] <= datetime(2025, 1, 18))
+        (df['Donation Date'] >= previous_week_start) &
+        (df['Donation Date'] <= previous_year_date)
     ]
     previous_givers = previous_week_df['Donor ID'].nunique()
     

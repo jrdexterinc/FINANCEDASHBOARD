@@ -1,45 +1,40 @@
 {
-  "lastUpdated": "2026-01-27T20:46:10",
-  "reportWeekEnding": "2026-01-25T23:59:59",
+  "lastUpdated": "2026-02-02T21:46:01",
+  "reportWeekEnding": "2026-02-01T23:59:59",
   "currentWeek": {
     "wtd": {
-      "actual": 137915.06,
+      "actual": 168940.63,
       "budget": 157128,
-      "previousYear": 133956.9
+      "previousYear": 222335.84
     },
     "mtd": {
-      "actual": 591946.93,
+      "actual": 716834.25,
       "budget": 475190,
-      "previousYear": 572906.61
+      "previousYear": 749238.9
     },
     "ytd": {
-      "actual": 591946.93,
+      "actual": 760937.56,
       "budget": 6296690,
-      "previousYear": 572906.61
+      "previousYear": 768627.92
     },
     "distinctGivers": {
-      "current": 896,
-      "previous": 737
+      "current": 702,
+      "previous": 755
     },
     "donationCategories": {
-      "Undesignated": 569647.88,
-      "Processing Fees": 2032.6,
+      "Undesignated": 736055.54,
+      "Processing Fees": 2694.07,
       "Legacy": 0.0,
-      "Designated": 20266.45
+      "Designated": 22187.95
     },
     "givingMethods": {
-      "Online": 378448.03,
-      "ACH": 131365.95,
+      "Online": 517815.64,
+      "ACH": 160938.97,
       "Cash": 25557.78,
       "Check": 55995.17,
-      "Other": 580.0
+      "Other": 630.0
     },
     "weeklyTrend": [
-      {
-        "week": "11/23",
-        "amount": 142511.69,
-        "year": 2025
-      },
       {
         "week": "11/30",
         "amount": 145277.92,
@@ -77,24 +72,29 @@
       },
       {
         "week": "01/18",
-        "amount": 161900.45,
+        "amount": 161950.45,
         "year": 2026
       },
       {
         "week": "01/25",
         "amount": 137915.06,
         "year": 2026
+      },
+      {
+        "week": "02/01",
+        "amount": 168940.63,
+        "year": 2026
       }
     ],
     "yoyComparison": [
       {
         "month": "Jan",
-        "current": 600548.33,
+        "current": 716834.25,
         "previous": 749238.9
       },
       {
         "month": "Feb",
-        "current": 0.0,
+        "current": 44103.31,
         "previous": 740209.2
       },
       {

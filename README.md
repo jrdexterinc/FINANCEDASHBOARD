@@ -38,11 +38,13 @@ FinanceDashboard/
 ├── index.html                          # Main dashboard HTML
 ├── README.md                           # This file
 ├── scripts/
+│   ├── run_all.py                      # Master script to run all data generation scripts
 │   ├── main.js                         # Dashboard initialization and KPI updates
 │   ├── charts.js                       # Chart creation and management
 │   ├── data-loader.js                  # Data loading and calculations
 │   ├── data_cleaner.py                 # Raw CSV cleaning and validation
-│   └── contributions_generator.py      # Weekly JSON report generation
+│   ├── contributions_generator.py      # Weekly JSON report generation
+│   └── donor_insights_generator.py     # Donor insights and segmentation
 ├── styles/
 │   └── dashboard.css                   # Styling and responsive design
 ├── data/
@@ -51,7 +53,7 @@ FinanceDashboard/
 │   ├── donor_lookup.csv                       # Unique donor reference table
 │   ├── budget_2026.json                       # Budget data
 │   ├── contributions_2026.json                # Weekly contribution report
-│   └── donors_2026.json                       # Donor information
+│   └── donors_2026.json                       # Donor information and segments
 └── .gitignore                          # Git ignore rules
 ```
 
@@ -97,28 +99,34 @@ npx http-server
 
 1. **Export raw donation data** from your giving system as `Two_Years_of_Giving_Through_2026.csv` and place in the `data/` directory
 
-2. **Clean and validate the data**:
+2. **Run all data processing scripts** (recommended):
 
 ```bash
-python3 scripts/data_cleaner.py
+# Run all scripts at once
+python3 scripts/run_all.py
+
+# Or run individual scripts
+python3 scripts/run_all.py cleaner          # Clean and validate data
+python3 scripts/run_all.py contributions    # Generate weekly report
+python3 scripts/run_all.py insights         # Generate donor insights
+
+# View available scripts
+python3 scripts/run_all.py --list
 ```
 
-This generates:
+**What each script does:**
 
-- `master_donations_cleaned.csv` - Cleaned, standardized donation records
-- `donor_lookup.csv` - Unique donor reference table
+- **data_cleaner.py** - Cleans raw CSV data and generates:
+  - `master_donations_cleaned.csv` - Cleaned, standardized donation records
+  - `donor_lookup.csv` - Unique donor reference table
 
-3. **Generate weekly contribution report**:
+- **contributions_generator.py** - Generates weekly contribution report:
+  - `contributions_2026.json` - Weekly metrics and analytics for the dashboard
 
-```bash
-python3 scripts/contributions_generator.py
-```
+- **donor_insights_generator.py** - Generates donor insights:
+  - `donors_2026.json` - Donor information and segments
 
-This generates:
-
-- `contributions_2026.json` - Weekly metrics and analytics for the dashboard
-
-4. **Refresh the dashboard** - The dashboard will automatically load the updated JSON data
+3. **Refresh the dashboard** - The dashboard will automatically load the updated JSON data
 
 ## Data Files
 
@@ -152,6 +160,30 @@ This generates:
 - **donors_2026.json**: Donor information
 
 ## Data Processing Details
+
+### Master Script (`run_all.py`)
+
+Convenient command-line tool to run all data generation scripts:
+
+```bash
+# Run all scripts in order (cleaner → contributions → insights)
+python3 scripts/run_all.py
+
+# Run a specific script
+python3 scripts/run_all.py cleaner
+python3 scripts/run_all.py contributions
+python3 scripts/run_all.py insights
+
+# List available scripts
+python3 scripts/run_all.py --list
+```
+
+Features:
+
+- Run all scripts in the correct dependency order
+- Run individual scripts as needed
+- Clear progress output with status indicators
+- Error handling and summary reporting
 
 ### Data Cleaner (`data_cleaner.py`)
 
@@ -262,6 +294,7 @@ Expected minimal structure (example):
 ```
 
 Notes:
+
 - File path: `data/budget_2026.json`
 - Keys: `year` (number), `weekly_budget` (number), `monthly_budgets` (object mapping month number to amount).
 - If you want me to make the scripts automatically read this file, tell me and I'll implement it.
